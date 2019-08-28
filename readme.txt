@@ -1,7 +1,7 @@
 === Wp Vue ===
-Contributors: (this should be a list of wordpress.org userid's)
-Donate link: https://example.com/
-Tags: comments, spam
+Contributors: tristup
+Donate link: http://www.tristupghosh.com/
+Tags: WordPress, Vue, Shortcodes
 Requires at least: 4.4
 Tested up to: 5.2.2
 Stable tag: 0.1.0
