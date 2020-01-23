@@ -53,7 +53,7 @@ This section describes how to install the plugin and get it working.
 
 2. Activate Plugin through 'Plugins' menu in WordPress.
 
-You will find 'Import Demos' menu in your WordPress admin panel.
+3. You can start using the Shortcode with all the possible attributes. Happy `Vuing`
 
 == Files ==
 
