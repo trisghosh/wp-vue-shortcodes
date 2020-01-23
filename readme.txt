@@ -57,24 +57,9 @@ You will find 'Import Demos' menu in your WordPress admin panel.
 
 == Files ==
 
-1. demo_info.json : Demo Related JSON Structure
-2. plugin_check.json : Required Plugin checking JSON Structure
-3. screenshot.png : Default Screenshot for demo
-4. theme_data.xml : Demo Content for specific demo
-5. widget_data.wie : Widget Import file
-6. redux.json : Redux Theme Option import file
-7. free-slider-to-test.zip : Revolution Slider Demo file for test
 
 == Screenshots ==
  
-1. Plugin Check JSON Structure [ Demos Folder ] <img src="http://www.tristupghosh.com/wpplugins/simple-theme-demo-importer/screenshot_1.png">  
-2. Theme Demo JSON Structure [ Demos/Demo Name Folder] <img src="http://www.tristupghosh.com/wpplugins/simple-theme-demo-importer/screenshot_2.png">
-
-3. Required Plugin Notice <img src="http://www.tristupghosh.com/wpplugins/simple-theme-demo-importer/screenshot_3.png">
-
-4. More Than one demo <img src="http://www.tristupghosh.com/wpplugins/simple-theme-demo-importer/screenshot_4.png">
-
-5. Plugin File Structure <img src="http://www.tristupghosh.com/wpplugins/simple-theme-demo-importer/screenshot_5.png">
 
 == Changelog == 
 
