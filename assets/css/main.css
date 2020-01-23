@@ -1,0 +1,42 @@
+.pagination
+{
+	width: 100%;
+    text-align: center;
+}
+.pagination ul li
+{
+	list-style: none;
+    display: inline-block;
+
+}
+.pagination a, .page-links a, .post-nav-links a, .post-nav-links .post-page-numbers.current
+{
+	background-color: #ffffff;
+    border: 1px solid #e9e9e9;
+    color: #01012f;
+    cursor: pointer;
+    display: inline-block;
+    line-height: 1.5;
+    font-weight: 600;
+    text-align: center;
+    transition: all 0.3s ease 0s;
+    font-size: 1.125rem;
+    border-radius: 5px;
+    margin: 0 0.125rem 0.625rem;
+    padding: 0.625rem;
+    vertical-align: baseline;
+    white-space: nowrap;
+    width: 3.125rem;
+    height: 3.125rem;
+    box-shadow: none;
+}
+.preloader-container
+{
+	text-align: center;
+}
+.preloader
+{
+	width: 100px;
+	text-align: center;
+	margin: 0 auto;
+}

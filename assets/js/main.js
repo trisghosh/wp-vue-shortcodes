@@ -3,40 +3,47 @@
   var vm = new Vue({
     el: document.querySelector('#mount'),
 	    	data: {
-	    	   message: 'Hello Vue!',
+	    	   message: 'WordPress Vue ShrotCode!',
 	    	   posts:null,
 	    	   total_page:null,
 	    	   total_posts:null,
-	    	   posts_per_page:null
+	    	   posts_per_page:null,
+	    	   current_page:null
 	    	},
-
 	    	methods:{
-	    	  fetchPosts: function(p = 1)
-	    	  {
-	    	  	console.log(p);
-	    	  	
-	    	    var url = vuesettings.base_url+'wp-json/wp/v2/posts?_embed&page='+p;
-	    	    fetch(url).then((response)=>{
-	    	    	this.total_posts=response.headers.get('X-WP-Total');
-	    	    	this.total_page=response.headers.get('X-WP-TotalPages');
-	    	    	this.posts_per_page=vuesettings.posts_per_page;
-	    	      return response.json()
-	    	      }).then((data)=>{
-	    	        this.posts = data;
-	    	        console.log(this.posts);
-	    	      });
-	    	  }
-	    	 },
+	    		handleScroll (event) {
+	    			console.log(window.scrollY );
+			    },
+	    	  	fetchPosts: function(p = 1)
+	    	  	{	    	  	
+		    	  	this.$data.posts=null;
+		    	    var url = vuesettings.base_url+'wp-json/wp/v2/posts?_embed&page='+p;
+		    	    fetch(url).then((response)=>{
+		    	  		this.data='';
+		    	    	this.total_posts=response.headers.get('X-WP-Total');
+		    	    	this.total_page=response.headers.get('X-WP-TotalPages');
+		    	    	this.posts_per_page=vuesettings.posts_per_page;
+		    	    	this.current_page=p;
+		    	      return response.json()
+		    	      }).then((data)=>{
+		    	      	setTimeout(() => { this.posts = data; }, 2000);	    	       
+		    	    });
+		    	}
+	    	},
+    	 	created () 
+    	 	{
+		        window.addEventListener('scroll', this.handleScroll);
+			},
 		   	mounted: function()
 		   	{
-		   		console.log("Hello Vue!");
-		   		console.log("Component is mounted");
-
-		   		  this.fetchPosts();
-		   		  // setInterval(function () {
-		   		  //  this.fetchPosts();
-		   		  // }.bind(this), 5000);
-		   	}
+		   		//Mounted
+		   		this.fetchPosts();
+		   		document.addEventListener('scroll', this.fetchPosts());
+		   	},
+		   	destroyed () {
+		        clearInterval(this.interval);
+		   		document.removeEventListener('scroll', this.fetchPosts());
+		    }
   });
 
 })();
