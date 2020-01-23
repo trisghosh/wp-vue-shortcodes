@@ -8,107 +8,75 @@ Stable tag: 0.1.0
 License: GPLv2 or later
 License URI: https://www.gnu.org/licenses/gpl-2.0.html
 
-Here is a short description of the plugin.  This should be no more than 150 characters.  No markup here.
-
 == Description ==
 
-This is the long description.  No limit, and you can use Markdown (as well as in the following sections).
+WP Vue plugin will provide you the shortcode to show the Posts using the VUE JS. Page will shows as Single Page Application. 
 
-For backwards compatibility, if this section is missing, the full length of the short description will be used, and
-Markdown parsed.
+== Major features in WP Vue include: ==
 
-A few notes about the sections above:
+1. Shows the Posts using Vue-JS
 
-*   "Contributors" is a comma separated list of wp.org/wp-plugins.org usernames
-*   "Tags" is a comma separated list of tags that apply to the plugin
-*   "Requires at least" is the lowest version that the plugin will work on
-*   "Tested up to" is the highest version that you've *successfully used to test the plugin*. Note that it might work on
-higher versions... this is just the highest one you've verified.
-*   Stable tag should indicate the Subversion "tag" of the latest stable version, or "trunk," if you use `/trunk/` for
-stable.
+2. Can limit the posts [ Else will take default value from Site Settings ]
 
-    Note that the `readme.txt` of the stable tag is the one that is considered the defining one for the plugin, so
-if the `/trunk/readme.txt` file says that the stable tag is `4.3`, then it is `/tags/4.3/readme.txt` that'll be used
-for displaying information about the plugin.  In this situation, the only thing considered from the trunk `readme.txt`
-is the stable tag pointer.  Thus, if you develop in trunk, you can update the trunk `readme.txt` to reflect changes in
-your in-development version, without having that information incorrectly disclosed about the current stable version
-that lacks those changes -- as long as the trunk's `readme.txt` points to the correct stable tag.
+3. Shows the Pagination
 
-    If no stable tag is provided, it is assumed that trunk is stable, but you should specify "trunk" if that's where
-you put the stable version, in order to eliminate any doubt.
+4. Single Page Appplication
+
+5. Do Not reload the page.
+
+
+== Shortcode & Attributes ==
+
+#With all default values
+[wp-vue-posts]
+
+#With Post Per Page Option 
+[wp-vue-posts posts_per_page="20"]
+
+#With Offset Option 
+[wp-vue-posts posts_per_page="20" offset="10"]
+
+#With Order Option 
+[wp-vue-posts posts_per_page="20" offset="10" order="desc"]
+Order Options : "desc" for descending, "asc" for ascending
+
+#With Order By Option 
+[wp-vue-posts posts_per_page="20" offset="10" order="desc" orderby="date"]
+Order By Options : "id" is deafult value, other valid values are "date", "relevance", "include", "title", and "slug"
+
 
 == Installation ==
-
+ 
 This section describes how to install the plugin and get it working.
 
-e.g.
+1. Go to Wordpress Dashboard > Plugins > click on Installed plugins > look for add new at the top most of the screen and click here > Add Plugins > upload plugin > choose file -> click here and upload Simple Demo Importer plugin.
 
-1. Upload `plugin-name.php` to the `/wp-content/plugins/` directory
-1. Activate the plugin through the 'Plugins' menu in WordPress
-1. Place `<?php do_action('plugin_name_hook'); ?>` in your templates
+2. Activate Plugin through 'Plugins' menu in WordPress.
 
-== Frequently Asked Questions ==
+You will find 'Import Demos' menu in your WordPress admin panel.
 
-= A question that someone might have =
+== Files ==
 
-An answer to that question.
-
-= What about foo bar? =
-
-Answer to foo bar dilemma.
+1. demo_info.json : Demo Related JSON Structure
+2. plugin_check.json : Required Plugin checking JSON Structure
+3. screenshot.png : Default Screenshot for demo
+4. theme_data.xml : Demo Content for specific demo
+5. widget_data.wie : Widget Import file
+6. redux.json : Redux Theme Option import file
+7. free-slider-to-test.zip : Revolution Slider Demo file for test
 
 == Screenshots ==
+ 
+1. Plugin Check JSON Structure [ Demos Folder ] <img src="http://www.tristupghosh.com/wpplugins/simple-theme-demo-importer/screenshot_1.png">  
+2. Theme Demo JSON Structure [ Demos/Demo Name Folder] <img src="http://www.tristupghosh.com/wpplugins/simple-theme-demo-importer/screenshot_2.png">
 
-1. This screen shot description corresponds to screenshot-1.(png|jpg|jpeg|gif). Note that the screenshot is taken from
-the /assets directory or the directory that contains the stable readme.txt (tags or trunk). Screenshots in the /assets
-directory take precedence. For example, `/assets/screenshot-1.png` would win over `/tags/4.3/screenshot-1.png`
-(or jpg, jpeg, gif).
-2. This is the second screen shot
+3. Required Plugin Notice <img src="http://www.tristupghosh.com/wpplugins/simple-theme-demo-importer/screenshot_3.png">
 
-== Changelog ==
+4. More Than one demo <img src="http://www.tristupghosh.com/wpplugins/simple-theme-demo-importer/screenshot_4.png">
 
-= 1.0 =
-* A change since the previous version.
-* Another change.
+5. Plugin File Structure <img src="http://www.tristupghosh.com/wpplugins/simple-theme-demo-importer/screenshot_5.png">
 
-= 0.5 =
-* List versions from most recent at top to oldest at bottom.
+== Changelog == 
 
-== Upgrade Notice ==
+Intially it can be used for the Theme Demo Importer. 
 
-= 1.0 =
-Upgrade notices describe the reason a user should upgrade.  No more than 300 characters.
-
-= 0.5 =
-This version fixes a security related bug.  Upgrade immediately.
-
-== Arbitrary section ==
-
-You may provide arbitrary sections, in the same format as the ones above.  This may be of use for extremely complicated
-plugins where more information needs to be conveyed that doesn't fit into the categories of "description" or
-"installation."  Arbitrary sections will be shown below the built-in sections outlined above.
-
-== A brief Markdown Example ==
-
-Ordered list:
-
-1. Some feature
-1. Another feature
-1. Something else about the plugin
-
-Unordered list:
-
-* something
-* something else
-* third thing
-
-Here's a link to [WordPress](https://wordpress.org/ "Your favorite software") and one to [Markdown's Syntax Documentation][markdown syntax].
-Titles are optional, naturally.
-
-[markdown syntax]: https://daringfireball.net/projects/markdown/syntax
-            "Markdown is what the parser uses to process much of the readme file"
-
-Markdown uses email style notation for blockquotes and I've been told:
-> Asterisks for *emphasis*. Double it up  for **strong**.
-
-`<?php code(); // goes in backticks ?>`

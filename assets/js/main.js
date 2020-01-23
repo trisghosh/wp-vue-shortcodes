@@ -17,7 +17,21 @@
 	    	  	fetchPosts: function(p = 1)
 	    	  	{	    	  	
 		    	  	this.$data.posts=null;
-		    	    var url = vuesettings.base_url+'wp-json/wp/v2/posts?_embed&page='+p;
+		    	    var url = vuesettings.base_url+'wp-json/wp/v2/posts?_embed&page='+p+'&per_page='+vuesettings.posts_per_page;
+		    	    console.log(vuesettings.offset);
+		    	    if(vuesettings.offset)
+		    	    {
+		    	    	url=url+'&offset='+vuesettings.offset;
+		    	    }
+		    	    if(vuesettings.order)
+		    	    {
+		    	    	url=url+'&order='+vuesettings.order;
+		    	    }
+		    	    if(vuesettings.orderby)
+		    	    {
+		    	    	url=url+'&orderby='+vuesettings.orderby;
+		    	    }
+		    	    console.log(url);
 		    	    fetch(url).then((response)=>{
 		    	  		this.data='';
 		    	    	this.total_posts=response.headers.get('X-WP-Total');

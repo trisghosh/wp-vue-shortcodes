@@ -34,14 +34,23 @@ class wp_vue
 	{
 		add_shortcode('wp-vue-posts', array($this,'wp_vue_shortcode'));
 	}//end of function
-	function wp_vue_shortcode() 
+	function wp_vue_shortcode($atts) 
 	{
 		if(!is_admin())
 		{
+			extract( shortcode_atts( array(
+			  'posts_per_page'=>'',
+			  'offset'=>'',
+			  'order'=>'',
+			  'orderby'=>'',
+			), $atts,'wp-vue' ) );
+
+			$posts_per_page=empty($posts_per_page)? get_option( 'posts_per_page' ):$posts_per_page;
+
 			wp_enqueue_style( 'wp-vue-css', WPVUE_PLUGIN_CSS_URI. 'main.css' );
 			wp_enqueue_script('vue',WPVUE_PLUGIN_JS_URI.'vue.js',[], WPVUE_VERSION);
 		    wp_enqueue_script('wp-vue-script',WPVUE_PLUGIN_JS_URI.'main.js',array('vue'));
-		    wp_localize_script( 'wp-vue-script', 'vuesettings', array('ajaxurl' => admin_url( 'admin-ajax.php' ),'base_url'=>home_url('/'),'posts_per_page'=> get_option( 'posts_per_page' )) );
+		    wp_localize_script( 'wp-vue-script', 'vuesettings', array('ajaxurl' => admin_url( 'admin-ajax.php' ),'base_url'=>home_url('/'),'posts_per_page'=> $posts_per_page,'offset'=>$offset,'order'=>$order,'orderby'=>$orderby) );
 		    include 'templates/wp-vue.php';
 		}	   
 	}//end of function	
